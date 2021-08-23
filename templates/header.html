@@ -1,11 +1,46 @@
-
-<div>
+<div style="text-align: center">
     <div class="header_logo">
-        <h1>Plant It</h1>
+        <h1>
+            <a href="{% url 'mainapp:home' %}"
+               style="text-decoration-line: none; color: black;">
+                PLANT IT
+            </a>
+        </h1>
     </div>
-    <div>
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="header_button">
+        <span>
+            <a href="{% url 'articleapp:list' %}">
+                정보게시판
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'projectapp:list' %}">
+                자랑게시판
+            </a>
+        </span>
+
+        {% if not user.is_authenticated %}
+        <span>
+            <a href="{% url 'accountapp:login' %}">
+                로그인
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'accountapp:create' %}">
+                회원가입
+            </a>
+        </span>
+        {% else %}
+        <span>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                마이페이지
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'accountapp:logout' %}">
+                로그아웃
+            </a>
+        </span>
+        {% endif %}
     </div>
 </div>
