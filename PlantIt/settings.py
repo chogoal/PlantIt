@@ -57,7 +57,10 @@ INSTALLED_APPS = [
     'articleapp',
     'profileapp',
     'projectapp',
+    'shopapp',
+    'backgroundapp',
     'mainapp',
+
 ]
 
 MIDDLEWARE = [
