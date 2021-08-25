@@ -60,8 +60,14 @@ INSTALLED_APPS = [
     'shopapp',
     'backgroundapp',
     'mainapp',
-
+    'likeapp'
 ]
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
