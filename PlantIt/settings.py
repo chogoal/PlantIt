@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'shopapp',
     'backgroundapp',
     'mainapp',
-    'likeapp'
+    'likeapp',
+    'challengeapp',
 ]
 
 from django.contrib.messages import constants as messages
