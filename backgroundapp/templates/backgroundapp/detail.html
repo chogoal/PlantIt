@@ -3,23 +3,20 @@
 {% block content %}
 
     <div class="container text-center">
-
-        <div class="my-5">
-            {#      제목 / 글쓴이 / 날짜      #}
-            <h1 class="NNS_B">{{ target_background.id }}</h1>
-            <p>{{ target_background.price }}</p>
-        </div>
-
-        <hr>
-        <div>
-            {#      게시글 내용      #}
-            {% if target_background.image %}
+        <a href="{% url 'shopapp:backgroundpurchasing' background_pk=target_background.pk %}"
+           class="material-icons"
+           style="vertical-align: middle; color: #f12f2f">
+            favorite
+        </a>
+        {#      게시글 내용      #}
+        {% if target_background.image %}
             <img src="{{ target_background.image.url }}"
                  alt="dd"
                  class="article_image">
-            <p>heol</p>
-            {% endif %}
-        </div>
+
+            <div>{{ user.profile.mileage }}</div>
+        {% endif %}
+    </div>
 
     </div>
 
