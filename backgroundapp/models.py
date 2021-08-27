@@ -8,3 +8,4 @@ class Background(models.Model):
     # image = models.ImageField()
     image = models.ImageField(upload_to='background/', null=False)
     price = models.IntegerField(default=15)
+    state = models.CharField(max_length=10, default='unsold')

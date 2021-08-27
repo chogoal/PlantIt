@@ -3,74 +3,80 @@
 
 {% block content %}
 
-<div class="text-center mw-500 m-auto">
-    <div class="m-5">
-        {% if target_user.profile %}
-            <img src="{{ target_user.profile.image.url }}"
-                 class="profile_image m-4"
-                 alt="profile image">
-            <h2 class="NNS_B">
-                {{ target_user.profile.nickname }}
-                {% if user == target_user %}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
-                   class="material-icons round_button">
-                    edit
+    <div class="text-center mw-500 m-auto">
+        <div class="m-5">
+            {% if target_user.profile %}
+                <img src="{{ target_user.profile.image.url }}"
+                     class="profile_image m-4"
+                     alt="profile image">
+                <h2 class="NNS_B">
+                    {{ target_user.profile.nickname }}
+                    {% if user == target_user %}
+                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                           class="material-icons round_button">
+                            edit
+                        </a>
+                    {% endif %}
+                </h2>
+                <h5>{{ target_user.profile.message }}</h5>
+            {% else %}
+                <h2 class="NNS_B">
+                    <a href="{% url 'profileapp:create' %}">
+                        Create Profile
+                    </a>
+                </h2>
+            {% endif %}
+        </div>
+        <div>
+            {{ target_user.date_joined }}
+        </div>
+
+        {% if user == target_user %}
+            <div>
+                <a href="{% url 'accountapp:update' pk=target_user.pk %}"
+                   class="material-icons round_button mx-1">
+                    settings
                 </a>
-                {% endif %}
-            </h2>
-            <h5>{{ target_user.profile.message }}</h5>
-        {% else %}
-        <h2 class="NNS_B">
-            <a href="{% url 'profileapp:create' %}">
-                Create Profile
-            </a>
-        </h2>
+                <a href="{% url 'accountapp:delete' pk=user.pk %}"
+                   class="material-icons round_button mx-1">
+                    close
+                </a>
+            </div>
         {% endif %}
-    </div>
-    <div>
-        {{ target_user.date_joined }}
+
     </div>
 
-    {% if user == target_user %}
-    <div>
-        <a href="{% url 'accountapp:update' pk=target_user.pk %}"
-           class="material-icons round_button mx-1">
-            settings
-        </a>
-        <a href="{% url 'accountapp:delete' pk=user.pk %}"
-           class="material-icons round_button mx-1">
-            close
-        </a>
-    </div>
-    {% endif %}
-
-</div>
-
-<div class="mw-500 m-auto">
-    <div class="calendar">
-        <div class="calendar_header">
-            <div class="year-month"></div>
-            <div class="calendar_nav">
-                <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-                <button class="nav-btn go-today" onclick="goToday()">Today</button>
-                <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+    <div class="mw-500 m-auto">
+        <div class="calendar">
+            <div class="calendar_header">
+                <div class="year-month"></div>
+                <div class="calendar_nav">
+                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                    <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                </div>
+            </div>
+            <div class="calendar_main">
+                <div class="days">
+                    <div class="day">일</div>
+                    <div class="day">월</div>
+                    <div class="day">화</div>
+                    <div class="day">수</div>
+                    <div class="day">목</div>
+                    <div class="day">금</div>
+                    <div class="day">토</div>
+                </div>
+                <div class="dates"></div>
             </div>
         </div>
-        <div class="calendar_main">
-            <div class="days">
-                <div class="day">일</div>
-                <div class="day">월</div>
-                <div class="day">화</div>
-                <div class="day">수</div>
-                <div class="day">목</div>
-                <div class="day">금</div>
-                <div class="day">토</div>
-            </div>
-            <div class="dates"></div>
-        </div>
+
+        <script src="{% static 'js/calendar.js' %}"></script>
     </div>
 
-    <script src="{% static 'js/calendar.js' %}"></script>
-</div>
+    <h2 class="text-center" style="margin: 2rem">
+        <a href="{% url 'backgroundapp:list' %}">
+            shop
+        </a>
+    </h2>
 
 {% endblock %}
