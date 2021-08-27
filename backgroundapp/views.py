@@ -1,4 +1,7 @@
+import os
 import tempfile
+from pathlib import Path
+
 import cv2
 import requests
 from django.db.models.fields import files
@@ -8,8 +11,24 @@ from backgroundapp.models import Background
 
 
 def background_get(request):
-    access_key = 'd2O9LX_3cMvKvO8rrVdL_VMkirCrqI76DeP-INvUiBQ'
-    image = f"https://api.unsplash.com/photos/random/?client_id={access_key}&query=nature&orientation=landscape&count=1"
+
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    env_list = dict()
+    local_env = open(os.path.join(BASE_DIR, '.env'))
+
+    while True:
+        line = local_env.readline()
+        if not line:
+            break
+        line = line.replace('\n', '')
+        start = line.find('=')
+        key = line[:start]
+        value = line[start + 1:]
+        env_list[key] = value
+
+    REACT_APP_API_KEY = env_list['REACT_APP_API_KEY']
+
+    image = f"https://api.unsplash.com/photos/random/?client_id={REACT_APP_API_KEY}&query=nature&orientation=landscape&count=1"
     response = requests.get(image)
     photo = response.json()
     photo_dict = photo[0]
