@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container text-center">
+
+        <div class="my-5">
+            {#      제목 / 날짜      #}
+            <h1 class="NNS_B">{{ target_challenge.title }}</h1>
+            <p>{{ target_challenge.created_at }}</p>
+        </div>
+        <hr>
+        <div class="my-5">
+            {#      챌린지글 내용      #}
+            <img src="{{ target_challenge.image.url }}"
+                 alt=""
+                 class="article_image">
+
+            <div class="article_content">
+                {{ target_challenge.content }}
+            </div>
+
+            <div>
+                <a href="{% url 'challengeapp:update' pk=target_challenge.pk %}"
+                   class="btn btn-success rounded-pill px-5">
+                    Update
+                </a>
+                <a href="{% url 'challengeapp:delete' pk=target_challenge.pk %}"
+                   class="btn btn-danger rounded-pill px-5">
+                    Delete
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

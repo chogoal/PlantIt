@@ -29,15 +29,25 @@
     </style>
 
 
-    <div style="background-color: darkolivegreen; height: 100px;">
-        challenge
+    <div>
+
+        {% for challenge in challenge_list %}
+
+            <div>
+                <a href="{% url 'challengeapp:detail' pk=challenge.pk %}" class="NNS_B m-2">
+                    {{ challenge.title }}
+                </a>
+            </div>
+
+        {% endfor %}
+
     </div>
 
     <hr>
 
     <div class="container my-3">
 
-        {% for article in latest_articles %}
+        {% for article in best_articles %}
 
             <div>
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
