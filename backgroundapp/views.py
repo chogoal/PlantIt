@@ -6,28 +6,12 @@ import cv2
 import requests
 from django.db.models.fields import files
 from django.http import HttpResponse
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, RedirectView
 from backgroundapp.models import Background
 
 
 def background_get(request):
-
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    env_list = dict()
-    local_env = open(os.path.join(BASE_DIR, '.env'))
-
-    while True:
-        line = local_env.readline()
-        if not line:
-            break
-        line = line.replace('\n', '')
-        start = line.find('=')
-        key = line[:start]
-        value = line[start + 1:]
-        env_list[key] = value
-
-    REACT_APP_API_KEY = env_list['REACT_APP_API_KEY']
-
+    REACT_APP_API_KEY = get_api_key()
     image = f"https://api.unsplash.com/photos/random/?client_id={REACT_APP_API_KEY}&query=nature&orientation=landscape&count=1"
     response = requests.get(image)
     photo = response.json()
@@ -51,6 +35,25 @@ def background_get(request):
     cv2.imwrite(new_background.image.url[1:], output)
 
     return HttpResponse(cv2)
+
+
+def get_api_key():
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    env_list = dict()
+    local_env = open(os.path.join(BASE_DIR, '.env'))
+
+    while True:
+        line = local_env.readline()
+        if not line:
+            break
+        line = line.replace('\n', '')
+        start = line.find('=')
+        key = line[:start]
+        value = line[start + 1:]
+        env_list[key] = value
+
+    REACT_APP_API_KEY = env_list['REACT_APP_API_KEY']
+    return REACT_APP_API_KEY
 
 
 class BackgroundDetailView(DetailView):
