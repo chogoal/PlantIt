@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+
+        .container {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .container div {
+            width: 45%;
+            max-width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            flex-direction: column;
+            box-shadow: 0 0 1rem darkgray;
+        }
+
+        div img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+
+    </style>
+
+    <div class="container my-3">
+
+        {% for background in background_list %}
+
+            <div>
+                {% if background.image %}
+                <a href="{% url 'backgroundapp:detail' pk=background.pk %}">
+                    <img src="{{ background.image.url }}" alt="">
+                </a>
+                {% endif %}
+            <span class="material-icons"> monetization_on </span>
+            <span class="NNS_B m-2"> {{ background.price }} </span>
+            </div>
+
+        {% endfor %}
+
+    </div>
+    {% include 'snippets/pagination.html' %}
+
+{% endblock %}

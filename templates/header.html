@@ -1,43 +1,43 @@
 <div style="text-align: center">
     <div class="header_logo">
-        <h1>
+        <h1 class>
             <a href="{% url 'mainapp:home' %}">
                 PLANT IT
             </a>
         </h1>
     </div>
     <div class="header_button">
-        <span>
+        <span style="margin: 1rem">
             <a href="{% url 'articleapp:list' %}">
-                정보게시판
+                LIST
             </a>
         </span>
-        <span>
+        <span style="margin: 1rem">
             <a href="{% url 'projectapp:list' %}">
-                자랑게시판
+                PROJECT
             </a>
         </span>
 
         {% if not user.is_authenticated %}
-        <span>
+            <span style="margin: 1rem">
             <a href="{% url 'accountapp:login' %}">
-                로그인
+                LOG IN
             </a>
         </span>
-        <span>
+            <span style="margin: 1rem">
             <a href="{% url 'accountapp:create' %}">
-                회원가입
+                SIGN UP
             </a>
         </span>
         {% else %}
-        <span>
+            <span style="margin: 1rem">
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
-                마이페이지
+                MY PAGE
             </a>
         </span>
-        <span>
+            <span style="margin: 1rem">
             <a href="{% url 'accountapp:logout' %}">
-                로그아웃
+                LOG OUT
             </a>
         </span>
         {% endif %}
