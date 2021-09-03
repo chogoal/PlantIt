@@ -1,15 +1,17 @@
+
 .header_logo {
     margin: 2rem 0;
-    font-family: 'Sam3KRFont', cursive;
+    font-family: 'DungGeunMo', cursive;
 }
 
 .header_button {
     margin-bottom: 2rem;
+    font-family: 'DungGeunMo', cursive;
 }
 
 .footer_logo {
     margin: 1.5rem 0;
-    font-family: 'Sam3KRFont', cursive;
+    font-family: 'DungGeunMo', cursive;
 }
 
 .footer_button {
@@ -32,6 +34,10 @@
     font-family: 'NanumSquareB', cursive;
 }
 
+.DGM {
+    font-family: 'DungGeunMo', cursive;
+}
+
 .round_button {
     color: black;
     text-decoration: none;
@@ -42,6 +48,7 @@
 
 .round_button:hover {
     color: dimgray;
+
 }
 
 .article_image {
@@ -167,4 +174,119 @@
 a {
     text-decoration-line: none;
     color: black;
+
+}
+
+/* main star animation */
+
+.blinking_1_5s {
+    -webkit-animation: blink 1.5s ease-in-out infinite alternate;
+    -moz-animation: blink 1.5s ease-in-out infinite alternate;
+    animation: blink 1.5s ease-in-out infinite alternate;
+}
+
+.blinking_1s {
+    -webkit-animation: blink 1s ease-in-out infinite alternate;
+    -moz-animation: blink 1s ease-in-out infinite alternate;
+    animation: blink 1s ease-in-out infinite alternate;
+}
+
+.blinking_0_8s {
+    -webkit-animation: blink 0.8s ease-in-out infinite alternate;
+    -moz-animation: blink 0.8s ease-in-out infinite alternate;
+    animation: blink 0.8s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@-webkit-keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@-moz-keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@-webkit-keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+.stars {
+    background: black url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 0;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+
+    -moz-animation: move-background 10s linear infinite;
+    -ms-animation: move-background 10s linear infinite;
+    -o-animation: move-background 20s linear infinite;
+    -webkit-animation: move-background 20s linear infinite;
+    animation: move-background 20s linear infinite;
+
 }

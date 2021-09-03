@@ -1,10 +1,9 @@
+{% load static %}
 <div style="text-align: center">
     <div class="header_logo">
-        <h1 class>
-            <a href="{% url 'mainapp:home' %}">
-                PLANT IT
-            </a>
-        </h1>
+        <a href="{% url 'mainapp:home' %}">
+            <img src="{% static 'imgs/header_logo.png' %}" alt="header_logo" style="max-width: 20%">
+        </a>
     </div>
     <div class="header_button">
         <span style="margin: 1rem">
@@ -31,13 +30,14 @@
         </span>
         {% else %}
             <span style="margin: 1rem">
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
-                MY PAGE
-            </a>
-        </span>
-            <span style="margin: 1rem">
             <a href="{% url 'accountapp:logout' %}">
                 LOG OUT
+            </a>
+
+        </span>
+            <span style="margin: 1rem">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                MY PAGE
             </a>
         </span>
         {% endif %}

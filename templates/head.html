@@ -1,6 +1,8 @@
 {% load static %}
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
@@ -19,7 +21,8 @@
 
     {# MATERIAL ICONS LINK #}
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet">
+          rel="stylesheet">
+
 
     <style>
         @font-face {
@@ -27,27 +30,55 @@
             src: local('NanumSquareR'),
             url("{% static 'fonts/NanumSquareR.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareEB';
             src: local('NanumSquareEB'),
             url("{% static 'fonts/NanumSquareEB.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareB';
             src: local('NanumSquareB'),
             url("{% static 'fonts/NanumSquareB.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareL';
             src: local('NanumSquareL'),
             url("{% static 'fonts/NanumSquareL.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'Sam3KRFont';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
+
+        @font-face {
+            font-family: 'DungGeunMo';
+            src: local('DungGeunMo'),
+            url("{% static 'fonts/DungGeunMo.otf' %}") format("opentype");
+        }
+
+
+        * {
+            cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor.png), auto;
+        }
+
+        a, a:link {
+            cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+        }
+
+        a:hover, a:focus {
+            cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+        }
+
+        a:active {
+            cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+        }
+
     </style>
 
 </head>

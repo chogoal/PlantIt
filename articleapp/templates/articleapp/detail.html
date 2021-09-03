@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
     <div class="container text-center">
@@ -8,10 +8,8 @@
             {#      제목 / 글쓴이 / 날짜      #}
             <h1 class="NNS_B">{{ target_article.title }}</h1>
             <div class="my-3">
-                <a href="{% url 'likeapp:articlelike' article_pk=target_article.pk %}"
-                   class="material-icons"
-                   style="vertical-align: middle; color: #f12f2f">
-                    favorite
+                <a href="{% url 'likeapp:articlelike' article_pk=target_article.pk %}">
+                    <img src="{% static 'imgs/heart.png' %}" style="max-width: 50px">
                 </a>
                 <span style="vertical-align: middle;">
                     {{ target_article.like }}
