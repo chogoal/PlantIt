@@ -1,22 +1,88 @@
+{#{% extends 'base.html' %}#}
+{#{% load bootstrap4 %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#<div class="text-center mw-500 m-auto">#}
+{#    <div class="m-5">#}
+{#        <h4>Sign Up</h4>#}
+{#    </div>#}
+{#    <div>#}
+{#        <form action="{% url 'accountapp:create' %}" method="post">#}
+{#            {% csrf_token %}#}
+{#            {% bootstrap_form form %}#}
+{#            <div class="m-5">#}
+{#                <input type="submit" class="btn btn-dark rounded-pill px-5">#}
+{#            </div>#}
+{#        </form>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{##}
+{#{% endblock %}#}
+
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap4 %}
 
 {% block content %}
+    <style>
+        Body {
+            background-color: pink;
+        }
 
-<div class="text-center mw-500 m-auto">
-    <div class="m-5">
-        <h4>Sign Up</h4>
-    </div>
-    <div>
-        <form action="{% url 'accountapp:create' %}" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <div class="m-5">
-                <input type="submit" class="btn btn-dark rounded-pill px-5">
-            </div>
+        button {
+            background-color: #4CAF50;
+            width: 100%;
+            color: orange;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+
+        form {
+            border: 7px solid #f1f1f1;
+            margin-bottom: 5rem;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+
+    </style>
+    <div class="text-center mw-500 m-auto" style="font-family: 'DungGeunMo', cursive">
+        <div class="m-5">
+            <h3>Sign Up</h3>
+        </div>
+        <div>
+            <form action="{% url 'accountapp:create' %}" method="post">
+                {% csrf_token %}
+                <div class="signup_container">
+                    <label> Username </label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+
+                    <label> Password </label>
+                    <input type="password" placeholder="Enter Password" name="password1" required>
+
+                    <label> Confirm Password </label>
+                    <input type="password"  placeholder="Enter Password" name="password2" required>
+
+                    <button type="submit"> Sign up</button>
+                </div>
         </form>
     </div>
-</div>
+    </div>
 
 
 {% endblock %}

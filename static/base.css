@@ -290,3 +290,21 @@ a {
     animation: move-background 20s linear infinite;
 
 }
+
+/* log in */
+
+.login_container {
+    padding: 25px;
+    background-color: lightblue;
+    font-family: 'DungGeunMo', cursive;
+}
+
+.signup_container {
+    padding: 25px;
+    background-color: lightblue;
+    font-family: 'DungGeunMo', cursive;
+}
+
+label {
+    font-size: 1.5rem
+}
