@@ -41,7 +41,7 @@ class ChallengeUpdateView(UpdateView):
     template_name = 'challengeapp/update.html'
 
     def get_success_url(self):
-        return reverse('challengeapp:detail', kwargs={'pk': self.object.pk})
+        return reverse('mainapp:home')
 
 
 class ChallengeDeleteView(DeleteView):
