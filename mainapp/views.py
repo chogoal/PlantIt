@@ -14,10 +14,6 @@ def main_screen(request):
     return render(request, 'mainapp/main.html')
 
 
-def home(request):
-    return render(request, 'mainapp/home.html')
-
-
 class HomePageView(TemplateView):
 
     template_name = 'mainapp/home.html'
@@ -28,7 +24,7 @@ class HomePageView(TemplateView):
 
         context = super().get_context_data(**kwargs)
         context['best_articles'] = article_list[:10]
-        context['challenge_list'] = challenge_list
+        context['challenge_list'] = challenge_list[:10]
 
         return context
 

@@ -34,7 +34,7 @@
         {% for challenge in challenge_list %}
 
             <div>
-                <a href="{% url 'challengeapp:detail' pk=challenge.pk %}" class="NNS_B m-2">
+                <a href="{% url 'challengeapp:update' pk=challenge.pk %}" class="NNS_B m-2">
                     {{ challenge.title }}
                 </a>
             </div>
