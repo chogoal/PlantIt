@@ -1,5 +1,7 @@
+import random
+
 from django.contrib.auth.models import User
-from django.db.models import Count
+from django.db.models import Count, Max
 from django.shortcuts import render
 
 # Create your views here.
@@ -14,17 +16,27 @@ def main_screen(request):
     return render(request, 'mainapp/main.html')
 
 
+def get_random():
+    max_id = Challenge.objects.all().aggregate(max_id=Max("id"))['max_id']
+    while True:
+        pk = random.randint(1, max_id)
+        challenge = Challenge.objects.filter(pk=pk, success=False).first()
+        if challenge:
+            return challenge
+
+
 class HomePageView(TemplateView):
 
     template_name = 'mainapp/home.html'
 
     def get_context_data(self, **kwargs):
-        article_list = Article.objects.annotate(like_count=Count('like')).order_by('-like_count', '-created_at')
-        challenge_list = Challenge.objects.filter(success=False)
+        article_list = Article.objects.all().order_by('-like', '-created_at')
+        # challenge_list = Challenge.objects.filter(success=False)
 
         context = super().get_context_data(**kwargs)
         context['best_articles'] = article_list[:10]
-        context['challenge_list'] = challenge_list[:10]
+        # context['challenge_list'] = challenge_list[:10]
+        context['random_challenge'] = get_random()
 
         return context
 

@@ -7,15 +7,17 @@
         <div class="my-5">
             {#      제목 / 날짜      #}
             <h1 class="NNS_B">{{ target_challenge.title }}</h1>
-            <p>{{ target_challenge.created_at }}</p>
+            <p>{{ target_challenge.updated_at }}</p>
+            <p>{{ target_challenge.success }}</p>
         </div>
         <hr>
         <div class="my-5">
             {#      챌린지글 내용      #}
-            <img src="{{ target_challenge.image.url }}"
-                 alt=""
-                 class="article_image">
-
+            {% if target_challenge.image %}
+                <img src="{{ target_challenge.image.url }}"
+                     alt=""
+                     class="article_image">
+            {% endif %}
             <div class="article_content">
                 {{ target_challenge.content }}
             </div>

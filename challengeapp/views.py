@@ -40,8 +40,16 @@ class ChallengeUpdateView(UpdateView):
     context_object_name = 'target_challenge'
     template_name = 'challengeapp/update.html'
 
-    def get_success_url(self):
-        return reverse('mainapp:home')
+    def get_success_url(self, **kwargs):
+        writer = self.request.user
+        writer.profile.mileage += 20
+        writer.profile.save()
+
+        challenge = self.model.objects.get(pk=self.object.pk)
+        challenge.success = True
+        challenge.save()
+
+        return reverse('challengeapp:detail', kwargs={'pk': self.object.pk})
 
 
 class ChallengeDeleteView(DeleteView):

@@ -19,6 +19,7 @@
                     {% endif %}
                 </h2>
                 <h5>{{ target_user.profile.message }}</h5>
+                <h5>마일리지 : {{ target_user.profile.mileage }}</h5>
             {% else %}
                 <h2>
                     <a href="{% url 'profileapp:create' %}">

@@ -31,16 +31,19 @@
 
     <div>
 
-        {% for challenge in challenge_list %}
+{#        {% for challenge in challenge_list %}#}
+{##}
+{#            <div>#}
+{#                <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">#}
+{#                    {{ random_challenge.title }}#}
+{#                </a>#}
+{#            </div>#}
+{##}
+{#        {% endfor %}#}
 
-            <div>
-                <a href="{% url 'challengeapp:update' pk=challenge.pk %}" class="NNS_B m-2">
-                    {{ challenge.title }}
-                </a>
-            </div>
-
-        {% endfor %}
-
+        <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">
+            {{ random_challenge.title }}
+        </a>
     </div>
 
     <hr>

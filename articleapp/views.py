@@ -24,6 +24,9 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        writer = self.request.user
+        writer.profile.mileage += 10
+        writer.profile.save()
         return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
 
@@ -50,8 +53,13 @@ class ArticleUpdateView(UpdateView):
 class ArticleDeleteView(DeleteView):
     model = Article
     context_object_name = 'target_article'
-    success_url = reverse_lazy('articleapp:list')
     template_name = 'articleapp/delete.html'
+
+    def get_success_url(self):
+        writer = self.request.user
+        writer.profile.mileage -= 10
+        writer.profile.save()
+        return reverse('articleapp:list')
 
 
 class ArticleListView(ListView):
