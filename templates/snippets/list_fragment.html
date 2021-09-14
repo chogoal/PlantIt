@@ -34,7 +34,10 @@
                     <img src="{{ article.image.url }}" alt="">
                 </a>
             <span class="NNS_B m-2">{{ article.title }}</span>
-            <span class="NNS_B m-2">{{ article.like }}</span>
+            <span class="NNS_B m-2">
+                <img src="{% static 'imgs/heart.png' %}" alt="heart" style="max-width: 20px">
+                {{ article.like }}
+            </span>
             </div>
 
         {% endfor %}
