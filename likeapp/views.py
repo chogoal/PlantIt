@@ -37,7 +37,7 @@ class LikeArticleView(RedirectView):
 
         try:
             db_transaction(user, article)
-            messages.add_message(request, messages.SUCCESS, '좋아요b')
+            messages.add_message(request, messages.SUCCESS, '좋아요 b')
         except ValidationError:
             messages.add_message(request, messages.ERROR, '좋아요는 한 번만 가능합니다.')
             return HttpResponseRedirect(reverse('articleapp:detail',

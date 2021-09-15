@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-
     <style>
 
         .container {
@@ -11,20 +10,23 @@
         }
 
         .container div {
-            width: 45%;
-            max-width: 200px;
+            margin-top: 2rem;
+            max-width: 270px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 1rem;
+            {#border-radius: 0.5rem;#}
             flex-direction: column;
-            box-shadow: 0 0 1rem darkgray;
+            {#box-shadow: 0 0 0.5rem darkgray;#}
         }
 
-        div img {
-            width: 100%;
-            border-radius: 1rem;
+        .container img {
+            {#border-radius: 0.5rem;#}
+            width: 270px;
+            height: 270px;
+            object-fit: cover;
         }
+
 
     </style>
 
@@ -34,9 +36,11 @@
 
             <div>
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
-                    <img src="{{ article.image.url }}" alt="">
+                    <img src="{{ article.image.url }}" alt="cover_image">
                 </a>
-            <span class="NNS_B m-2">{{ article.title }}</span>
+{#                <span class="NNS_B m-2">#}
+{#                    {{ article.title | truncatechars:20 }}#}
+{#                </span>#}
             </div>
 
         {% endfor %}
@@ -44,7 +48,6 @@
     </div>
 
     <script src="{% static 'js/magicgrid.js' %}"></script>
-
     {% include 'snippets/pagination.html' %}
 
     <div class="text-center my-5">
