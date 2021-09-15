@@ -57,8 +57,6 @@ INSTALLED_APPS = [
     'articleapp',
     'profileapp',
     'projectapp',
-    'shopapp',
-    'backgroundapp',
     'mainapp',
     'likeapp',
     'challengeapp',

@@ -26,9 +26,6 @@ urlpatterns = [
     path('articles/', include('articleapp.urls')),
     path('projects/', include('projectapp.urls')),
 
-    path('shops/', include('shopapp.urls')),
-    path('backgrounds/', include('backgroundapp.urls')),
-
 
     path('likes/', include('likeapp.urls')),
     path('challenges/', include('challengeapp.urls')),
