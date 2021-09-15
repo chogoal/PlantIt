@@ -26,6 +26,11 @@
     margin: 1rem 1.5rem;
 }
 
+.page_title {
+    font-family: 'DungGeunMo', cursive;
+    color: darkgreen;
+}
+
 .profile_image {
     width: 12rem;
     height: 12rem;
@@ -64,6 +69,62 @@
     font-size: 1.1rem;
     text-align: left;
     margin: 2rem 0;
+}
+
+
+input[type=text], input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid darkgreen;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid darkgreen;
+    box-sizing: border-box;
+}
+
+.filebox {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.filebox.bs3-success label {
+    color: #fff;
+    background-color: #2d8756;
+    border-color: #2d8756;
 }
 
 .comment_box {
@@ -310,4 +371,30 @@ a {
 
 label {
     font-size: 1.5rem
+}
+
+* {
+    cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor.png), auto;
+}
+
+a, a:link, a img, a img:link,
+input, input:link, label[for="form.image"], label[for="form.image"]:link,
+/*label[for="form.project"], label[for="form.project"]:link,*/
+textarea, textarea:link, input[type=submit], input[type=submit]:link{
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+}
+
+a:hover, a:focus, a img:hover, a img:focus,
+input:hover, input:focus, label[for="form.image"]:hover, label[for="form.image"]:focus,
+/*label[for="form.project"]:hover, label[for="form.project"]:focus,*/
+textarea:hover, textarea:focus,
+input[type=submit]:hover, input[type=submit]:focus {
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+}
+
+a:active, a img:active,
+input:active, label[for="form.image"]:active,
+/*label[for="form.project"]:active,*/
+textarea:active, input[type=submit]:active {
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
 }
