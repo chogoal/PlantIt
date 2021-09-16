@@ -26,7 +26,23 @@
     margin: 1rem 1.5rem;
 }
 
+
+.account_button {
+    background-color: #4CAF50;
+    font-size: 1.3rem;
+    width: 100%;
+    color: orange;
+    padding: 15px;
+    margin: 10px 0px;
+    border: none;
+}
+
+.account_button:hover {
+    opacity: 0.7;
+}
+
 .page_title {
+    margin: 3rem;
     font-family: 'DungGeunMo', cursive;
     color: darkgreen;
 }
@@ -370,31 +386,33 @@ a {
 }
 
 label {
-    font-size: 1.5rem
+    font-size: 1.5rem;
+    font-family: 'DungGeunMo', cursive;
+    margin: 0.5rem;
 }
 
 * {
     cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor.png), auto;
 }
 
-a, a:link, a img, a img:link,
+a, a:link, a img, a img:link, button, button:link,
 input, input:link, label[for="form.image"], label[for="form.image"]:link,
-/*label[for="form.project"], label[for="form.project"]:link,*/
-textarea, textarea:link, input[type=submit], input[type=submit]:link{
+    /*label[for="form.project"], label[for="form.project"]:link,*/
+textarea, textarea:link, input[type=submit], input[type=submit]:link {
     cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
 }
 
-a:hover, a:focus, a img:hover, a img:focus,
+a:hover, a:focus, a img:hover, a img:focus, button:hover, button:focus
 input:hover, input:focus, label[for="form.image"]:hover, label[for="form.image"]:focus,
-/*label[for="form.project"]:hover, label[for="form.project"]:focus,*/
+    /*label[for="form.project"]:hover, label[for="form.project"]:focus,*/
 textarea:hover, textarea:focus,
 input[type=submit]:hover, input[type=submit]:focus {
     cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
 }
 
-a:active, a img:active,
+a:active, a img:active, button:active,
 input:active, label[for="form.image"]:active,
-/*label[for="form.project"]:active,*/
+    /*label[for="form.project"]:active,*/
 textarea:active, input[type=submit]:active {
     cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
 }

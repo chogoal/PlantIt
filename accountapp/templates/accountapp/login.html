@@ -8,54 +8,39 @@
             background-color: lightgoldenrodyellow;
         }
 
-        button {
-            background-color: #4CAF50;
-            width: 100%;
-            color: orange;
-            padding: 15px;
-            margin: 10px 0px;
-            border: none;
-            cursor: pointer;
-        }
-
         form {
-            border: 7px solid #f1f1f1;
+            border: 5px solid floralwhite;
             margin-bottom: 5rem;
         }
 
-        input[type=text], input[type=password] {
-            width: 100%;
-            margin: 8px 0;
-            padding: 12px 20px;
-            display: inline-block;
-            border: 2px solid green;
-            box-sizing: border-box;
-        }
-
-        button:hover {
-            opacity: 0.7;
-        }
 
 
     </style>
     <div class="text-center mw-500 m-auto DGM">
-        <div class="m-5 page_title">
-            <h2>Log In</h2>
+
+        <div class="page_title">
+            <h2> ****  Log In  **** </h2>
         </div>
+
         <div>
             <form action="{% url 'accountapp:login' %}" method="post">
                 {% csrf_token %}
+
                 <div class="login_container">
-                    <label> Username </label>
+
+                    <label> -- Username -- </label>
                     <input type="text" placeholder="Enter Username" name="username" required>
 
-                    <label> Password </label>
+                    <label> -- Password --  </label>
                     <input type="password" placeholder="Enter Password" name="password" required>
 
-                    <button type="submit"> Log In </button>
+                    <div style="margin-top: 1rem">
+                        <input type="submit" value="Log In" class="account_button">
+                    </div>
                 </div>
             </form>
         </div>
+
     </div>
 
 

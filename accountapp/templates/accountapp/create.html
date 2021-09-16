@@ -3,62 +3,49 @@
 {% load bootstrap4 %}
 
 {% block content %}
+
     <style>
         Body {
             background-color: #E5F9D1;
         }
-
-        button {
-            background-color: #4CAF50;
-            width: 100%;
-            color: orange;
-            padding: 15px;
-            margin: 10px 0px;
-            border: none;
-            cursor: pointer;
-        }
-
         form {
-            border: 7px solid #f1f1f1;
+            border: 5px solid floralwhite;
             margin-bottom: 5rem;
         }
-
-        input[type=text], input[type=password] {
-            width: 100%;
-            margin: 8px 0;
-            padding: 12px 20px;
-            display: inline-block;
-            border: 2px solid green;
-            box-sizing: border-box;
+        .content {
+            margin: 1rem;
         }
-
-        button:hover {
-            opacity: 0.7;
-        }
-
-
     </style>
+
     <div class="text-center mw-500 m-auto" style="font-family: 'DungGeunMo', cursive">
-        <div class="m-5 page_title">
-            <h2>Sign Up</h2>
+
+        <div class="page_title">
+            <h2> **** Sign Up **** </h2>
         </div>
+
         <div>
             <form action="{% url 'accountapp:create' %}" method="post">
                 {% csrf_token %}
+
                 <div class="signup_container">
-                    <label> Username </label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
 
-                    <label> Password </label>
-                    <input type="password" placeholder="Enter Password" name="password1" required>
+                        <label> -- Username -- </label>
+                        <input type="text" placeholder="Enter Username" name="username" required>
 
-                    <label> Confirm Password </label>
-                    <input type="password"  placeholder="Enter Password" name="password2" required>
 
-                    <button type="submit"> Sign up </button>
+                        <label> -- Password -- </label>
+                        <input type="password" placeholder="Enter Password" name="password1" required>
+                        <input type="password" placeholder="Confirm Password" name="password2" required>
+
+
+                    <div style="margin-top: 1rem">
+                        <input type="submit" value="Sign Up" class="account_button">
+                    </div>
+
                 </div>
-        </form>
-    </div>
+
+            </form>
+        </div>
     </div>
 
 
