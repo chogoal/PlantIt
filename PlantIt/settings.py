@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'projectapp',
     'mainapp',
     'likeapp',
+    'commentapp',
     'challengeapp',
 ]
 
