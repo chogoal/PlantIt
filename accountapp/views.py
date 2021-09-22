@@ -11,6 +11,7 @@ from django.views.generic.list import MultipleObjectMixin
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from articleapp.models import Article
+from challengeapp.models import Challenge
 
 
 class AccountCreateView(CreateView):
@@ -22,7 +23,7 @@ class AccountCreateView(CreateView):
         return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
 
-class AccountDetailView(DetailView, MultipleObjectMixin):
+class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
@@ -31,7 +32,14 @@ class AccountDetailView(DetailView, MultipleObjectMixin):
 
     def get_context_data(self, **kwargs):
         article_list = Article.objects.filter(writer=self.object)
-        return super().get_context_data(object_list=article_list, **kwargs)
+        # challenge_list = Challenge.objects.filter(writer=self.object)
+        challenge_list = Challenge.objects.filter(success=True)
+
+        context = super().get_context_data(**kwargs)
+        context['my_articles'] = article_list
+        context['my_challenges'] = challenge_list
+
+        return context
 
 
 has_ownership = [login_required, account_ownership_required]

@@ -45,6 +45,8 @@ class ChallengeUpdateView(UpdateView):
         writer.profile.mileage += 20
         writer.profile.save()
 
+        self.model.writer = writer
+
         challenge = self.model.objects.get(pk=self.object.pk)
         challenge.success = True
         challenge.save()

@@ -3,76 +3,133 @@
 
 {% block content %}
 
-    <div class="text-center mw-500 m-auto" style="font-family: 'DungGeunMo', cursive">
-        <div class="m-5">
-            {% if target_user.profile %}
-                <img src="{{ target_user.profile.image.url }}"
-                     class="profile_image m-4"
-                     alt="profile image">
-                <h2 class="NNS_B">
-                    {{ target_user.profile.nickname }}
-                    {% if user == target_user %}
-                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
-                           class="material-icons round_button">
-                            edit
+    <div id="mypage_wrap">
+
+        <div id="background" style="background-color: darkolivegreen; height: 200px;"></div>
+
+        <div id="mypage_container">
+            <div id="mypage_header">
+                {% if target_user.profile %}
+                    <div class="profile">
+                        <img src="{{ target_user.profile.image.url }}" id="profile_image" alt="profile image">
+                        <h2 class="NNS_B">
+                            {{ target_user.profile.nickname }}
+                            {% if user == target_user %}
+                            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                               class="material-icons round_button">
+                                edit
+                            </a>
+                            {% endif %}
+                        </h2>
+                        <div style="margin: 10px">마일리지 : {{ target_user.profile.mileage }}</div>
+                        {% if user == target_user %}
+                            <button type="button" class="btn btn-success" onclick="location.href = '{% url 'gameapp:game' %}'">
+                                내 맵으로 이동
+                            </button>
+                        {% endif %}
+                    </div>
+
+                {% else %}
+                    <h2>
+                        <a href="{% url 'profileapp:create' %}">
+                            프로필 생성하기
                         </a>
-                    {% endif %}
-                </h2>
-                <h5>{{ target_user.profile.message }}</h5>
-                <h5>마일리지 : {{ target_user.profile.mileage }}</h5>
-            {% else %}
-                <h2>
-                    <a href="{% url 'profileapp:create' %}">
-                        Create Profile
-                    </a>
-                </h2>
-            {% endif %}
-        </div>
-        <div>
-            {{ target_user.date_joined }}
+                    </h2>
+                {% endif %}
+            </div>
+
+            <div id="mypage_contents">
+
+                <div id="mypage_sidebar">
+                    <button type="button" onclick="open_list('my_articles')">
+                        내가 쓴 글
+                    </button>
+                    <button type="button" onclick="open_list('my_challenges')">
+                        인증한 챌린지
+                    </button>
+                </div>
+
+                <div id="my_contents">
+                    <div id="my_challenges" class="my">
+                        {% for challenge in my_challenges %}
+                            <div style="padding-bottom: 3px">
+                                <a href="{% url 'challengeapp:detail' pk=challenge.pk %}" class="NNS_B m-2">
+                                    * {{ challenge.title }}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div id="my_articles" class="my" style="display: none">
+                        {% for article in my_articles %}
+                            <div style="padding-bottom: 3px">
+                                <a href="{% url 'articleapp:detail' pk=article.pk %}" class="NNS_B m-2">
+                                    - {{ article.title }}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
 
-        {% if user == target_user %}
-            <div>
-                <a href="{% url 'accountapp:update' pk=target_user.pk %}"
-                   class="material-icons round_button mx-1">
-                    settings
-                </a>
-                <a href="{% url 'accountapp:delete' pk=user.pk %}"
-                   class="material-icons round_button mx-1">
-                    close
-                </a>
-            </div>
-        {% endif %}
+
+    {% if user == target_user %}
+        <div class="updateanddelete">
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
+                회원정보수정
+            </a>
+            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                계정삭제
+            </a>
+        </div>
+    {% endif %}
+
 
     </div>
 
-    <div class="mw-500 m-auto">
-        <div class="calendar">
-            <div class="calendar_header">
-                <div class="year-month"></div>
-                <div class="calendar_nav">
-                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-                    <button class="nav-btn go-today" onclick="goToday()">Today</button>
-                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
-                </div>
-            </div>
-            <div class="calendar_main">
-                <div class="days">
-                    <div class="day">일</div>
-                    <div class="day">월</div>
-                    <div class="day">화</div>
-                    <div class="day">수</div>
-                    <div class="day">목</div>
-                    <div class="day">금</div>
-                    <div class="day">토</div>
-                </div>
-                <div class="dates"></div>
-            </div>
-        </div>
 
-        <script src="{% static 'js/calendar.js' %}"></script>
-    </div>
+
+
+    <script>
+        function open_list(my_list) {
+            var i;
+            var x = document.getElementsByClassName("my");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(my_list).style.display = "block";
+        }
+    </script>
+
+
+{#  달력  #}
+{#    <div class="mw-500 m-auto">#}
+{#        <div class="calendar">#}
+{#            <div class="calendar_header">#}
+{#                <div class="year-month"></div>#}
+{#                <div class="calendar_nav">#}
+{#                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>#}
+{#                    <button class="nav-btn go-today" onclick="goToday()">Today</button>#}
+{#                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="calendar_main">#}
+{#                <div class="days">#}
+{#                    <div class="day">일</div>#}
+{#                    <div class="day">월</div>#}
+{#                    <div class="day">화</div>#}
+{#                    <div class="day">수</div>#}
+{#                    <div class="day">목</div>#}
+{#                    <div class="day">금</div>#}
+{#                    <div class="day">토</div>#}
+{#                </div>#}
+{#                <div class="dates"></div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <script src="{% static 'js/calendar.js' %}"></script>#}
+{#    </div>#}
 
 
 {% endblock %}
