@@ -4,71 +4,82 @@
 
     <div class="container text-center">
 
-        <div class="my-5">
+        <div style="margin: 4rem 0 0 0 ">
             {#      제목 / 글쓴이 / 날짜      #}
-            <h1 class="NNS_B">{{ target_article.title }}</h1>
-            <div class="my-3">
+            <h2 class="NNS_B">{{ target_article.title }}</h2>
+            <h5 class="DGM my-3">
+                {{ target_article.writer.profile.nickname }} | {{ target_article.created_at }}
+            </h5>
+            <div class="DGM">
                 <a href="{% url 'likeapp:articlelike' article_pk=target_article.pk %}">
                     <img src="{% static 'imgs/heart.png' %}" style="max-width: 50px">
                 </a>
-                <span style="vertical-align: middle;">
+                <span style="vertical-align: middle; font-size: 1.5rem">
                     {{ target_article.like }}
                 </span>
             </div>
-            <h4>{{ target_article.writer.profile.nickname }}</h4>
-            <p>{{ target_article.created_at }}</p>
         </div>
-        <hr>
-        <div class="my-5">
+        {% if target_article.writer == user %}
+            <div>
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}">
+                    <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
+                         style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+margin: 1rem">
+                </a>
+
+                <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
+                    <img src="{% static 'imgs/delete_icon.png' %}" alt="delete_icon"
+                         style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+margin: 1rem">
+                </a>
+            </div>
+        {% endif %}
+        <div>
             {#      게시글 내용      #}
             <img src="{{ target_article.image.url }}"
                  alt=""
-                 class="article_image">
+                 class="article_image my-2">
 
-            <div class="article_content">
+            <div class="article_content" style="text-align: center">
                 {{ target_article.content }}
             </div>
 
-            {% if target_article.writer == user %}
-            <div>
-                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
-                   class="btn btn-success rounded-pill px-5">
-                    Update
-                </a>
-                <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
-                   class="btn btn-danger rounded-pill px-5">
-                    Delete
-                </a>
-            </div>
-            {% endif %}
+
         </div>
+        <br>
         <hr>
+        <br>
         <div class="text-center my-4">
             {#      댓글      #}
             {% for comment in target_article.comment.all %}
 
                 <div class="comment_box">
                     <div>
-                        <span style="font-size: 1.3rem;" class="NNS_B">
+                        <span style="font-size: 1.3rem;" class="DGM">
                             {{ comment.writer.profile.nickname }}
                         </span>
-                        <span>{{ comment.created_at }}</span>
+                        <span style="font-size: 0.7rem; color: #999999">{{ comment.created_at }}</span>
+                        {% if comment.writer == user %}
+                            <span style="margin-left: 1rem" class="DGM">
+                                <a href="{% url 'commentapp:delete' pk=comment.pk %}">
+                                    <img src="{% static 'imgs/delete_comment_icon.png' %}" alt="delete_comment_icon"
+                                         style="max-width: 2rem">
+                                    delete
+                                    <img src="{% static 'imgs/delete_comment_icon.png' %}" alt="delete_comment_icon"
+                                         style="max-width: 2rem">
+                                </a>
+                                </a>
+                            </span>
+                        {% endif %}
+
                     </div>
                     <div class="my-2">
                         <p>{{ comment.content }}</p>
                     </div>
-                    {% if comment.writer == user %}
-                    <div style="text-align: right">
-                        <a href="{% url 'commentapp:delete' pk=comment.pk %}"
-                           class="btn btn-danger rounded-pill px-5">
-                            Delete
-                        </a>
-                    </div>
-                    {% endif %}
+
                 </div>
 
             {% endfor %}
-
             {% include 'commentapp/create.html' %}
         </div>
     </div>

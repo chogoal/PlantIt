@@ -15,19 +15,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            {#border-radius: 0.5rem;#}
-            flex-direction: column;
-            {#box-shadow: 0 0 0.5rem darkgray;#}
+        {#border-radius: 0.5rem;#} flex-direction: column;
+        {#box-shadow: 0 0 0.5rem darkgray;#}
         }
 
         .container img {
-            {#border-radius: 0.5rem;#}
-            width: 270px;
+        {#border-radius: 0.5rem;#} width: 270px;
             height: 270px;
             object-fit: cover;
         }
 
-
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
     </style>
 
     <div class="container my-3">
@@ -38,9 +40,9 @@
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}" alt="cover_image">
                 </a>
-{#                <span class="NNS_B m-2">#}
-{#                    {{ article.title | truncatechars:20 }}#}
-{#                </span>#}
+                {#                <span class="NNS_B m-2">#}
+                {#                    {{ article.title | truncatechars:20 }}#}
+                {#                </span>#}
             </div>
 
         {% endfor %}

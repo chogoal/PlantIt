@@ -4,14 +4,17 @@
 
 <div class="text-center mw-500 m-auto">
     <div class="m-5">
-        <h4>Delete Article : {{ target_article.title }}</h4>
+        <h4 class="DGM">Delete Article :</h4>
+        <br>
+        <h5>{{ target_article.title }}</h5>
     </div>
     <div>
         <form action="{% url 'articleapp:delete' pk=target_article.pk %}"
               method="post">
             {% csrf_token %}
-            <div class="m-5">
-                <input type="submit" class="btn btn-danger rounded-pill px-5">
+            <div class="m-5 DGM">
+                <h6 style="color: #999999">Are you sure?</h6>
+                <input type="submit" class="btn btn-danger rounded-pill px-5" value="DELETE !">
             </div>
         </form>
     </div>

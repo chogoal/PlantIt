@@ -76,9 +76,7 @@
 }
 
 .article_image {
-    border-radius: 2rem;
     width: 50%;
-    box-shadow: 0 0 0.5rem gray;
 }
 
 .article_content {
@@ -144,12 +142,13 @@ textarea {
 }
 
 .comment_box {
-    border: solid #b0b0b0;
     text-align: left;
-    border-radius: 1rem;
     margin: 1rem 0;
     padding: 1rem;
-    font-size: 1.1rem;
+}
+
+.page_button {
+    margin: 0.5rem;
 }
 
 @media screen and (max-width: 500px) {
