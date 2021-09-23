@@ -74,7 +74,7 @@
 
 .article_content {
     font-size: 1.1rem;
-    text-align: left;
+    text-align: center;
     margin: 2rem 0;
 }
 
@@ -93,7 +93,7 @@
 
 #mypage_contents {
     top: 250px;
-    height: 600px;
+    height: 500px;
 }
 
 #mypage_sidebar {
@@ -157,10 +157,6 @@
     color: gray;
 }
 
-.my {
-    height: 300px;
-    overflow: auto;
-}
 
 input[type=text], input[type=password] {
     width: 100%;

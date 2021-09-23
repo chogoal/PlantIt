@@ -1,16 +1,18 @@
 {% load bootstrap4 %}
 
 <div class="text-center mw-500 m-auto">
-    <div>
         <form action="{% url 'commentapp:create' %}" method="post">
             {% csrf_token %}
-            {% bootstrap_form form %}
+            <div class="content">
+                <label for="id_content"></label>
+                <textarea name="content" id="id_content" cols="50" rows="4" placeholder="comment"></textarea>
+            </div>
             <input type="hidden"
                    name="article_pk"
                    value="{{ target_article.pk }}">
-            <div class="m-5 DGM">
+            <div class=" my-5 DGM">
                 <input type="submit" class="btn btn-outline-secondary px-5" value="WRITE">
             </div>
+            <br>
         </form>
-    </div>
 </div>
