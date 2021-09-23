@@ -4,43 +4,44 @@
 
     <div class="container text-center">
 
-        <div style="margin: 4rem 0 0 0 ">
-            {#      제목 / 글쓴이 / 날짜      #}
-            <h2 class="NNS_B">{{ target_article.title }}</h2>
-            <h5 class="DGM my-3">
-                {{ target_article.writer.profile.nickname }} | {{ target_article.created_at }}
-            </h5>
-            <div class="DGM">
-                <a href="{% url 'likeapp:articlelike' article_pk=target_article.pk %}">
-                    <img src="{% static 'imgs/heart.png' %}" style="max-width: 50px">
-                </a>
-                <span style="vertical-align: middle; font-size: 1.5rem">
+        <div>
+            <div style="margin: 3rem auto">
+                {#      제목 / 글쓴이 / 날짜      #}
+                <h2 class="NNS_B">{{ target_article.title }}</h2>
+                <h5 class="DGM my-3">
+                    {{ target_article.writer.profile.nickname }} | {{ target_article.created_at }}
+                </h5>
+                <div class="DGM">
+                    <a href="{% url 'likeapp:articlelike' article_pk=target_article.pk %}">
+                        <img src="{% static 'imgs/heart.png' %}" style="max-width: 50px">
+                    </a>
+                    <span style="vertical-align: middle; font-size: 1.5rem">
                     {{ target_article.like }}
                 </span>
-            </div>
-        </div>
-        {% if target_article.writer == user %}
-            <div>
-                <a href="{% url 'articleapp:update' pk=target_article.pk %}">
-                    <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
-                         style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+                </div>
+            {% if target_article.writer == user %}
+                <div>
+                    <a href="{% url 'articleapp:update' pk=target_article.pk %}">
+                        <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
+                             style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
 margin: 1rem">
-                </a>
+                    </a>
 
-                <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
-                    <img src="{% static 'imgs/delete_icon.png' %}" alt="delete_icon"
-                         style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+                    <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
+                        <img src="{% static 'imgs/delete_icon.png' %}" alt="delete_icon"
+                             style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
 margin: 1rem">
-                </a>
-            </div>
-        {% endif %}
+                    </a>
+                </div>
+            {% endif %}
+        </div>
         <div>
             {#      게시글 내용      #}
             <img src="{{ target_article.image.url }}"
                  alt=""
                  class="article_image my-2">
 
-            <div class="article_content" style="text-align: center">
+            <div class="article_content">
                 {{ target_article.content }}
             </div>
 
@@ -80,8 +81,11 @@ margin: 1rem">
                 </div>
 
             {% endfor %}
-            {% include 'commentapp/create.html' %}
+
         </div>
+    </div>
+    <div>
+        {% include 'commentapp/create.html' %}
     </div>
 
 {% endblock %}

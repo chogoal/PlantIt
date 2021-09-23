@@ -4,51 +4,59 @@
 {% block content %}
 
     <style>
-
+        <
+        style >
         .container {
             padding: 0;
             margin: 0 auto;
         }
 
         .container div {
-            width: 45%;
-            max-width: 200px;
+            margin-top: 2rem;
+            max-width: 270px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 1rem;
-            flex-direction: column;
-            box-shadow: 0 0 1rem darkgray;
+        {#border-radius: 0.5rem;#} flex-direction: column;
+        {#box-shadow: 0 0 0.5rem darkgray;#}
         }
 
-        div img {
-            width: 100%;
-            border-radius: 1rem;
+        .container img {
+        {#border-radius: 0.5rem;#} width: 270px;
+            height: 270px;
+            object-fit: cover;
         }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
 
     </style>
 
 
-    <div>
 
-{#        {% for challenge in challenge_list %}#}
-{##}
-{#            <div>#}
-{#                <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">#}
-{#                    {{ random_challenge.title }}#}
-{#                </a>#}
-{#            </div>#}
-{##}
-{#        {% endfor %}#}
+    <div style="text-align: center; margin: 3rem;">
+
+        {#        {% for challenge in challenge_list %}#}
+        {##}
+        {#            <div>#}
+        {#                <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">#}
+        {#                    {{ random_challenge.title }}#}
+        {#                </a>#}
+        {#            </div>#}
+        {##}
+        {#        {% endfor %}#}
 
         <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">
             {{ random_challenge.title }}
         </a>
     </div>
 
-    <hr>
 
-    <div class="container my-3">
+    <div class="container my-5">
 
         {% for article in best_articles %}
 
@@ -56,7 +64,6 @@
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}" alt="">
                 </a>
-            <span class="NNS_B m-2">{{ article.title }}</span>
             </div>
 
         {% endfor %}

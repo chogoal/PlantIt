@@ -74,7 +74,7 @@
 
 .article_content {
     font-size: 1.1rem;
-    text-align: left;
+    text-align: center;
     margin: 2rem 0;
 }
 
@@ -157,6 +157,13 @@
     color: gray;
 }
 
+h5.challenge_success {
+    color: #2d8756;
+}
+
+h5.challenge_try {
+    color: goldenrod;
+}
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -168,13 +175,13 @@ input[type=text], input[type=password] {
 }
 
 textarea {
-    width: 100%;
-    margin: 8px 0;
+    margin: auto;
     padding: 12px 20px;
     display: inline-block;
     border: 2px solid darkgreen;
     box-sizing: border-box;
 }
+
 
 .filebox {
     display: inline-block;
