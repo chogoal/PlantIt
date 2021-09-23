@@ -8,8 +8,8 @@
         <div id="background" style="background-color: darkolivegreen; height: 200px;"></div>
 
         <div id="mypage_container">
-            <div id="mypage_header">
-                {% if target_user.profile %}
+            {% if target_user.profile %}
+                <div id="mypage_header">
                     <div class="profile">
                         <img src="{{ target_user.profile.image.url }}" id="profile_image" alt="profile image">
                         <h2 class="NNS_B">
@@ -28,49 +28,50 @@
                             </button>
                         {% endif %}
                     </div>
-
-                {% else %}
-                    <h2>
-                        <a href="{% url 'profileapp:create' %}">
-                            프로필 생성하기
-                        </a>
-                    </h2>
-                {% endif %}
-            </div>
-
-            <div id="mypage_contents">
-
-                <div id="mypage_sidebar">
-                    <button type="button" onclick="open_list('my_articles')">
-                        내가 쓴 글
-                    </button>
-                    <button type="button" onclick="open_list('my_challenges')">
-                        인증한 챌린지
-                    </button>
                 </div>
 
-                <div id="my_contents">
-                    <div id="my_challenges" class="my">
-                        {% for challenge in my_challenges %}
-                            <div style="padding-bottom: 3px">
-                                <a href="{% url 'challengeapp:detail' pk=challenge.pk %}" class="NNS_B m-2">
+                <div id="mypage_contents">
+                    <div id="mypage_sidebar">
+                        <button type="button" onclick="open_list('my_articles')">
+                            내가 쓴 글
+                        </button>
+                        <button type="button" onclick="open_list('my_challenges')">
+                            인증한 챌린지
+                        </button>
+                    </div>
+                    <div id="my_contents">
+                        <div id="my_challenges" class="my">
+                            {% for challenge in my_challenges %}
+                                <a href="{% url 'challengeapp:detail' pk=challenge.pk %}" class="NNS_B m-2" style="display: block">
                                     * {{ challenge.title }}
                                 </a>
-                            </div>
-                        {% endfor %}
-                    </div>
+                            {% endfor %}
+                        </div>
 
-                    <div id="my_articles" class="my" style="display: none">
-                        {% for article in my_articles %}
-                            <div style="padding-bottom: 3px">
-                                <a href="{% url 'articleapp:detail' pk=article.pk %}" class="NNS_B m-2">
+                        <div id="my_articles" class="my" style="display: none">
+                            {% for article in my_articles %}
+                                <a href="{% url 'articleapp:detail' pk=article.pk %}" class="NNS_B m-2" style="display: block">
                                     - {{ article.title }}
                                 </a>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            {% else %}
+                <div id="mypage_header">
+                    <div class="profile">
+                        <img src="{% static 'imgs/empty_profile.png' %}" id="profile_image" alt="profile image">
+                        <h2 class="NNS_B">
+                            <a href="{% url 'profileapp:create'%}">
+                                프로필 생성
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div id="mypage_contents" style="height: 200px"></div>
+            {% endif %}
+
         </div>
 
 
@@ -79,7 +80,7 @@
             <a href="{% url 'accountapp:update' pk=target_user.pk %}">
                 회원정보수정
             </a>
-            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
                 계정삭제
             </a>
         </div>
@@ -102,34 +103,6 @@
         }
     </script>
 
-
-{#  달력  #}
-{#    <div class="mw-500 m-auto">#}
-{#        <div class="calendar">#}
-{#            <div class="calendar_header">#}
-{#                <div class="year-month"></div>#}
-{#                <div class="calendar_nav">#}
-{#                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>#}
-{#                    <button class="nav-btn go-today" onclick="goToday()">Today</button>#}
-{#                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="calendar_main">#}
-{#                <div class="days">#}
-{#                    <div class="day">일</div>#}
-{#                    <div class="day">월</div>#}
-{#                    <div class="day">화</div>#}
-{#                    <div class="day">수</div>#}
-{#                    <div class="day">목</div>#}
-{#                    <div class="day">금</div>#}
-{#                    <div class="day">토</div>#}
-{#                </div>#}
-{#                <div class="dates"></div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <script src="{% static 'js/calendar.js' %}"></script>#}
-{#    </div>#}
 
 
 {% endblock %}
