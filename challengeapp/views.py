@@ -65,5 +65,5 @@ class ChallengeListView(ListView):
     model = Challenge
     context_object_name = 'challenge_list'
     template_name = 'challengeapp/list.html'
-    paginate_by = 5
+    paginate_by = 20
 
