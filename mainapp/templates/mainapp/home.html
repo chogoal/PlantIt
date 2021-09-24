@@ -4,8 +4,6 @@
 {% block content %}
 
     <style>
-        <
-        style >
         .container {
             padding: 0;
             margin: 0 auto;
@@ -27,13 +25,6 @@
             object-fit: cover;
         }
 
-        .button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    </style>
-
     </style>
 
 
@@ -50,7 +41,7 @@
         {##}
         {#        {% endfor %}#}
 
-        <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="NNS_B m-2">
+        <a href="{% url 'challengeapp:update' pk=random_challenge.pk %}" class="home_challenge">
             {{ random_challenge.title }}
         </a>
     </div>
