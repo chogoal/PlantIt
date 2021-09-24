@@ -1,6 +1,36 @@
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
+    <style>
+
+        .container {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .container div {
+            margin-top: 2rem;
+            max-width: 270px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        {#border-radius: 0.5rem;#} flex-direction: column;
+        {#box-shadow: 0 0 0.5rem darkgray;#}
+        }
+
+        .container img {
+        {#border-radius: 0.5rem;#} width: 270px;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
 
     <div class="container my-3">
 
@@ -8,15 +38,25 @@
 
             <div>
                 <a href="{% url 'challengeapp:detail' pk=challenge.pk %}">
-                    {{ challenge.title }}
+                    <img src="{{ challenge.image.url }}" alt="cover_image">
                 </a>
+                <span class="NNS_B m-2">
+                    {{ challenge.title | truncatechars:20 }}
+                </span>
             </div>
 
         {% endfor %}
 
     </div>
 
+    <script src="{% static 'js/magicgrid.js' %}"></script>
     {% include 'snippets/pagination.html' %}
 
+    <div class="text-center my-5">
+        <a href="{% url 'challengeapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5 DGM" style="font-size: 1.2rem">
+            Create Challenge
+        </a>
+    </div>
 
 {% endblock %}

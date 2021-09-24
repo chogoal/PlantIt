@@ -40,9 +40,9 @@
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}" alt="cover_image">
                 </a>
-                {#                <span class="NNS_B m-2">#}
-                {#                    {{ article.title | truncatechars:20 }}#}
-                {#                </span>#}
+                <span class="NNS_B m-2">
+                    {{ article.title | truncatechars:20 }}
+                </span>
             </div>
 
         {% endfor %}

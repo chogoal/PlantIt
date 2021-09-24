@@ -55,8 +55,10 @@ class ChallengeUpdateView(UpdateView):
 class ChallengeDeleteView(DeleteView):
     model = Challenge
     context_object_name = 'target_challenge'
-    success_url = reverse_lazy('accountapp:detail')
     template_name = 'challengeapp/delete.html'
+
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.request.user.pk})
 
 
 class ChallengeListView(ListView):
