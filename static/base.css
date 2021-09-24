@@ -286,7 +286,7 @@ textarea {
 
 .menu a {
     padding: 22px 0px;
-    margin-right: 40px;
+    margin: 0 1.5rem;
     font-family: DungGeunMo, cursive;
     font-size: 18px;
     text-decoration: none;
