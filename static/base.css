@@ -78,10 +78,15 @@
     margin: 2rem 0;
 }
 
+.home_challenge {
+    font-family: NanumSquareB;
+    color: darkgreen;
+}
+
 #mypage_wrap {
     position: relative;
     background-color: darkolivegreen;
-    padding: 10px;
+    padding: 1px;
 }
 
 #mypage_container {
@@ -146,11 +151,12 @@
 
 .updateanddelete {
     text-align: center;
-    margin: 10px;
+    margin: 20px;
 }
 
 .updateanddelete > a {
     margin: 10px;
+    color: #e2e2e2;
 }
 
 .updateanddelete > a:hover {
