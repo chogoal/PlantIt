@@ -14,6 +14,7 @@
 
 .footer_logo {
     border-top: 4px solid darkgreen;
+    margin: 0 2rem;
     padding: 1.5rem 0;
     font-family: 'DungGeunMo', cursive;
 }
@@ -244,6 +245,7 @@ textarea {
 div form-group {
     margin: 20rem;
 }
+
 @media screen and (max-width: 500px) {
     html {
         /* default font-size = 16px */
@@ -266,7 +268,7 @@ div form-group {
     background-color: #AFD485;
     text-align: center;
     line-height: 3.5;
-    margin-top: 2rem;
+    margin: 2rem;
     border-top: 4px solid darkgreen;
     border-bottom: 4px solid darkgreen;
 }
@@ -279,8 +281,6 @@ div form-group {
     text-decoration: none;
     color: #282929;
     cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
-
-
 }
 
 .menu a:hover {

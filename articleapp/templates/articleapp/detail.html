@@ -19,49 +19,50 @@
                     {{ target_article.like }}
                 </span>
                 </div>
-            {% if target_article.writer == user %}
-                <div>
-                    <a href="{% url 'articleapp:update' pk=target_article.pk %}">
-                        <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
-                             style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
-margin: 1rem">
-                    </a>
-
-                    <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
-                        <img src="{% static 'imgs/delete_icon.png' %}" alt="delete_icon"
-                             style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
-margin: 1rem">
-                    </a>
-                </div>
-            {% endif %}
-        </div>
-        <div>
-            {#      게시글 내용      #}
-            <img src="{{ target_article.image.url }}"
-                 alt=""
-                 class="article_image my-2">
-
-            <div class="article_content">
-                {{ target_article.content }}
-            </div>
-
-
-        </div>
-        <br>
-        <hr>
-        <br>
-        <div class="text-center my-4">
-            {#      댓글      #}
-            {% for comment in target_article.comment.all %}
-
-                <div class="comment_box">
+                {# 수정 / 삭제 버튼 #}
+                {% if target_article.writer == user %}
                     <div>
+                        <a href="{% url 'articleapp:update' pk=target_article.pk %}">
+                            <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
+                                 style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+margin: 1rem">
+                        </a>
+
+                        <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
+                            <img src="{% static 'imgs/delete_icon.png' %}" alt="delete_icon"
+                                 style="border: 1px solid darkolivegreen; border-radius: 12px; max-width: 100px;
+margin: 1rem">
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            <div>
+                {#      게시글 내용      #}
+                <img src="{{ target_article.image.url }}"
+                     alt=""
+                     class="article_image my-2">
+
+                <div class="article_content">
+                    {{ target_article.content }}
+                </div>
+
+
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="text-center my-4">
+                {#      댓글      #}
+                {% for comment in target_article.comment.all %}
+
+                    <div class="comment_box">
+                        <div>
                         <span style="font-size: 1.3rem;" class="DGM">
                             {{ comment.writer.profile.nickname }}
                         </span>
-                        <span style="font-size: 0.7rem; color: #999999">{{ comment.created_at }}</span>
-                        {% if comment.writer == user %}
-                            <span style="margin-left: 1rem" class="DGM">
+                            <span style="font-size: 0.7rem; color: #999999">{{ comment.created_at }}</span>
+                            {% if comment.writer == user %}
+                                <span style="margin-left: 1rem" class="DGM">
                                 <a href="{% url 'commentapp:delete' pk=comment.pk %}">
                                     <img src="{% static 'imgs/delete_comment_icon.png' %}" alt="delete_comment_icon"
                                          style="max-width: 2rem">
@@ -69,23 +70,25 @@ margin: 1rem">
                                     <img src="{% static 'imgs/delete_comment_icon.png' %}" alt="delete_comment_icon"
                                          style="max-width: 2rem">
                                 </a>
-                                </a>
+                                    </a>
                             </span>
-                        {% endif %}
+                            {% endif %}
+
+                        </div>
+                        <div class="my-2">
+                            <p>{{ comment.content }}</p>
+                        </div>
 
                     </div>
-                    <div class="my-2">
-                        <p>{{ comment.content }}</p>
-                    </div>
 
-                </div>
+                {% endfor %}
 
-            {% endfor %}
-
+            </div>
+        </div>
+        <div>
+            {% include 'commentapp/create.html' %}
         </div>
     </div>
-    <div>
-        {% include 'commentapp/create.html' %}
-    </div>
+
 
 {% endblock %}
