@@ -1,11 +1,11 @@
 {% load static %}
-<div style="text-align: center">
+<nav style="text-align: center">
     <div class="header_logo m-3">
         <a href="{% url 'mainapp:home' %}">
             <img src="{% static 'imgs/header_logo.png' %}" alt="header_logo">
         </a>
     </div>
-    <div class="header_button">
+    <nav class="menu">
         <span style="margin: 1rem">
             <a href="{% url 'articleapp:list' %}">
                 LIST
@@ -36,5 +36,5 @@
             </a>
         </span>
         {% endif %}
-    </div>
+    </nav>
 </div>
