@@ -4,17 +4,28 @@
 
 {% block content %}
 
+    <script>
+        function chk() {
+            var p1 = document.getElementById('password1').value;
+            var p2 = document.getElementById('password2').value;
+            if (p1 != p2) {
+                alert("비밀번호가 일치 하지 않습니다");
+                return false;
+            }
+        }
+
+    </script>
+
     <style>
         Body {
             background-color: #E5F9D1;
         }
+
         form {
             border: 5px solid floralwhite;
             margin-bottom: 5rem;
         }
-        .content {
-            margin: 1rem;
-        }
+
     </style>
 
     <div class="text-center mw-500 m-auto" style="font-family: 'DungGeunMo', cursive">
@@ -29,17 +40,10 @@
 
                 <div class="signup_container">
 
-                        <label> -- Username -- </label>
-                        <input type="text" placeholder="Enter Username" name="username" required>
-
-
-                        <label> -- Password -- </label>
-                        <input type="password" placeholder="Enter Password" name="password1" required>
-                        <input type="password" placeholder="Confirm Password" name="password2" required>
-
+                    {% bootstrap_form form %}
 
                     <div style="margin-top: 1rem">
-                        <input type="submit" value="Sign Up" class="account_button">
+                        <input type="submit" value="Sign Up" class="account_button" onclick="chk()">
                     </div>
 
                 </div>

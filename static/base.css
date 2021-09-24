@@ -241,6 +241,9 @@ textarea {
     margin: 0.5rem;
 }
 
+div form-group {
+    margin: 20rem;
+}
 @media screen and (max-width: 500px) {
     html {
         /* default font-size = 16px */
@@ -248,22 +251,6 @@ textarea {
     }
 }
 
-
-.calendar_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.year-month {
-    font-size: 35px;
-}
-
-.calendar_nav {
-    display: flex;
-    border: 1px solid #333333;
-    border-radius: 5px;
-}
 
 .nav-btn {
     width: 28px;
@@ -291,6 +278,8 @@ textarea {
     font-size: 18px;
     text-decoration: none;
     color: #282929;
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+
 
 }
 
@@ -301,6 +290,8 @@ textarea {
 
 .menu a.active {
     padding: 6px 0;
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+
 }
 
 a {
