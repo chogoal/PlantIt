@@ -32,8 +32,7 @@ class AccountDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         article_list = Article.objects.filter(writer=self.object)
-        # challenge_list = Challenge.objects.filter(writer=self.object)
-        challenge_list = Challenge.objects.filter(success=True)
+        challenge_list = Challenge.objects.filter(writer=self.object)
 
         context = super().get_context_data(**kwargs)
         context['my_articles'] = article_list

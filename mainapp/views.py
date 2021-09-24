@@ -17,12 +17,20 @@ def main_screen(request):
 
 
 def get_random():
-    max_id = Challenge.objects.all().aggregate(max_id=Max("id"))['max_id']
-    while True:
-        pk = random.randint(1, max_id)
-        challenge = Challenge.objects.filter(pk=pk, success=False).first()
-        if challenge:
-            return challenge
+
+    # max_id = Challenge.objects.all().aggregate(max_id=Max("id"))['max_id']
+    # while True:
+    #     pk = random.randint(1, max_id)
+    #     challenge = Challenge.objects.filter(pk=pk, success=False).first()
+    #     if challenge:
+    #         return challenge
+
+    chall_list = Challenge.CHALL_LIST
+    r = random.randint(0, len(chall_list)-1)
+    title = chall_list[r][1]
+    challenge = Challenge(title=title)
+    # 조건문 -> 만약 제목이 이미 db에 있으면 제외
+    return challenge
 
 
 class HomePageView(TemplateView):

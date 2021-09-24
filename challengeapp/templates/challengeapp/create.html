@@ -3,28 +3,34 @@
 
 {% block content %}
 
-    <div class="text-center mw-500 m-auto">
-        <style>
-            form {
-                margin-bottom: 5rem;
-            }
 
-            .content {
-                margin: 1rem;
-            }
-        </style>
+    <style>
+        form {
+            margin-bottom: 5rem;
+        }
+
+        .content {
+            margin: 1rem;
+        }
+    </style>
+
+    <div class="text-center mw-500 m-auto">
 
         <div class="m-5 DGM">
             <h2>Create Challenge</h2>
         </div>
+
         <div>
             <form action="{% url 'challengeapp:create' %}"
                   enctype="multipart/form-data"
                   method="post">
 
-                <h1 class="NNS_B">{{ target_challenge.title }}</h1>
-
                 {% csrf_token %}
+
+                <div class="content">
+                    <label for="form.title"> Title </label>
+                    <div> {{ form.title }} </div>
+                </div>
 
                 <div class="content">
                     <label for="form.image"> Picture Select </label>

@@ -5,9 +5,36 @@ from django.db import models
 
 
 class Challenge(models.Model):
-    writer = models.OneToOneField(User, on_delete=models.CASCADE, related_name='challenge', null=True, blank=True)
-    title = models.CharField(max_length=200, null=True)
-    image = models.ImageField(upload_to='challenge/', null=True, blank=True)
-    content = models.TextField(null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    success = models.BooleanField(default=False)  # 챌린지 성공 유무
+    CHALL_LIST = [
+        ('의약 폐기물 분리수거하기', '의약 폐기물 분리수거하기'),
+        ('음식 남기지 않기', '음식 남기지 않기'),
+        ('업사이클 브랜드 제품 사용하기', '업사이클 브랜드 제품 사용하기'),
+        ('중고마켓에서 물건 사고 팔기', '중고마켓에서 물건 사고 팔기'),
+        ('녹색제품 이용하기', '녹색제품 이용하기'),
+        ('자연세제 사용하기', '자연세제 사용하기'),
+        ('컴퓨터 사용 시, 화면 밝기 50%로 하기', '컴퓨터 사용 시, 화면 밝기 50%로 하기'),
+        ('냉장고를 60% 정도만 채우기', '냉장고를 60% 정도만 채우기'),
+        ('수도꼭지는 사용 후, 찬물 쪽으로 향하게 두기', '수도꼭지는 사용 후, 찬물 쪽으로 향하게 두기'),
+        ('캔이나 플라스틱류 밟거나 찌그려서 분리 배출하기', '캔이나 플라스틱류 밟거나 찌그려서 분리 배출하기'),
+        ('승용차 대신 버스, 지하철 이용하기', '승용차 대신 버스, 지하철 이용하기'),
+        ('종이박스 테이프 떼고 펼쳐서 분리수거 하기', '종이박스 테이프 떼고 펼쳐서 분리수거 하기'),
+        ('손수건 가지고 다니기', '손수건 가지고 다니기'),
+        ('낮에는 사용하지 않는 조명을 끄기', '낮에는 사용하지 않는 조명을 끄기'),
+        ('사용한 프라이팬은 휴지로 기름을 닦아내고 설거지 하기', '사용한 프라이팬은 휴지로 기름을 닦아내고 설거지 하기'),
+        ('장바구니 들고다니기', '장바구니 들고다니기'),
+        ('카페에서 텀블러에 음료 주문하기', '카페에서 텀블러에 음료 주문하기'),
+        ('배달음식 주문할 때, 일회용 숟가락 젓가락 받지 않도록 요청하기', '배달음식 주문할 때, 일회용 숟가락 젓가락 받지 않도록 요청하기'),
+        ('산책이나 조깅하며 쓰레기 줍기', '산책이나 조깅하며 쓰레기 줍기'),
+        ('3층 이하는 계단을 이용하기', '3층 이하는 계단을 이용하기'),
+        ('일회용품 쓰지 않고 음식 포장해오기', '일회용품 쓰지 않고 음식 포장해오기'),
+        ('분리수거 시 이물질 묻은 병 깨끗히 씻어서 버리기', '분리수거 시 이물질 묻은 병 깨끗히 씻어서 버리기'),
+        ('채식하기', '채식하기'),
+        ('플라스틱 병 라벨 떼서 분리수거하기', '플라스틱 병 라벨 떼서 분리수거하기'),
+        ('샴푸 대신 샴푸바 사용하기', '샴푸 대신 샴푸바 사용하기'),
+    ]
+
+    writer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='challenge', null=True)
+    title = models.CharField(max_length=200, choices=CHALL_LIST, null=True)
+    image = models.ImageField(upload_to='challenge/', null=True)
+    content = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
