@@ -4,11 +4,14 @@ from django.db import models
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=20, null=False)
-    description = models.CharField(max_length=200, null=False)
-    image = models.ImageField(upload_to='project/', null=False)
+    PROJECT_LIST = [
+        ('정보', '정보게시판'),
+        ('자랑', '자랑게시판'),
+        ('챌린지', '챌린지'),
+    ]
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=20, choices=PROJECT_LIST, null=False, unique=True)
+    description = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return f'{self.name}'
