@@ -28,12 +28,70 @@
 
 
 
-    <div style="text-align: center; margin: 3rem 0 0 0;">
+    {#    <div style="text-align: center; margin: 3rem 0 0 0;">#}
+    {##}
+    {#        <a href="{% url 'challengeapp:create' %}" class="home_challenge">#}
+    {#            {{ random_challenge.title }}#}
+    {#        </a>#}
+    {#    </div>#}
 
-        <a href="{% url 'challengeapp:create' %}" class="home_challenge">
-            {{ random_challenge.title }}
-        </a>
+
+    <div class="notepaper">
+        <figure class="quote">
+            <blockquote class="curly-quotes">
+                <a href="{% url 'challengeapp:create' %}" class="home_challenge">
+                    {{ random_challenge.title }}
+                </a>
+            </blockquote>
+            <figcaption class="quote-by"> Challenge </figcaption>
+        </figure>
     </div>
+{#    <div class="sticky-note">#}
+{#        <div class="sticky-note__content">#}
+{#            <a href="{% url 'challengeapp:create' %}" class="home_challenge">#}
+{#                {{ random_challenge.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div class="sticky-note__tape">#}
+{#            <svg width="76" height="36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">#}
+{#                <use xlink:href="#path0_fill" transform="translate(3)" fill="#008934"/>#}
+{#                <use xlink:href="#path1_fill" transform="matrix(0 -1 -1 0 76 36)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 -1 0 76 33)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 -1 0 76 27)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 -1 0 76 21)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 -1 0 76 15)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 -1 0 76 9)" fill="#008934"/>#}
+{#                <use xlink:href="#path3_fill" transform="matrix(0 -1 -1 0 76 3)" fill="#008934"/>#}
+{#                <use xlink:href="#path0_fill" transform="translate(3)" fill="#008934"/>#}
+{#                <use xlink:href="#path1_fill" transform="matrix(0 -1 1 0 0 36)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 1 0 0 33)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 1 0 0 27)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 1 0 0 21)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 1 0 0 15)" fill="#008934"/>#}
+{#                <use xlink:href="#path2_fill" transform="matrix(0 -1 1 0 0 9)" fill="#008934"/>#}
+{#                <use xlink:href="#path3_fill" transform="matrix(0 -1 1 0 0 3)" fill="#008934"/>#}
+{#                <defs>#}
+{#                    <path id="path0_fill" d="M0 0h70v36H0V0z"/>#}
+{#                    <path id="path1_fill" d="M0 0l3 3H0V0z"/>#}
+{#                    <path id="path2_fill" d="M3 0l3 3H0l3-3z"/>#}
+{#                    <path id="path3_fill" d="M3 0v3H0l3-3z"/>#}
+{#                </defs>#}
+{#            </svg>#}
+{#        </div>#}
+{#        <div class="sticky-note__sheet sticky-note__sheet--top"></div>#}
+{#        <div class="sticky-note__sheet sticky-note__sheet--middle"></div>#}
+{#        <div class="sticky-note__sheet sticky-note__sheet--bottom"></div>#}
+{#    </div>#}
+
+    {#    <div class="sticky-notes">#}
+    {#        <div id="survey-form">#}
+    {##}
+    {#            <fieldset class="sticky-note">#}
+    {#                <legend class="tape">TODAY CHALLENGE</legend>#}
+    {#            </fieldset>#}
+    {##}
+    {#        </div>#}
+    {#    </div>#}
 
 
     <div class="container" style="margin: 1.5rem auto 4rem auto">

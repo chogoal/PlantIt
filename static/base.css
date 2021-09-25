@@ -83,6 +83,7 @@
 .home_challenge {
     font-family: NanumSquareB;
     color: darkgreen;
+    padding: 0 0.5rem;
 }
 
 #mypage_wrap {
@@ -433,6 +434,252 @@ label {
     font-family: 'DungGeunMo', cursive;
     margin: 0.5rem;
 }
+
+/* STICKY NOTE */
+
+#survey-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+
+legend.tape {
+    background-color: rgba(255, 255, 255, .7);
+    padding: 12px;
+}
+
+fieldset.sticky-note {
+    height: 18em;
+    width: 18em;
+    padding: 2em;
+    margin: 3em;
+    color: #000;
+    background: rgb(255, 253, 199);
+    box-shadow: 8px 5px 5px rgba(33, 33, 33, .5);
+}
+
+fieldset.sticky-note:nth-child(1) {
+    background-color: rgb(199, 201, 255);
+}
+
+/*2*/
+.sticky-note {
+    max-width: 500px;
+    position: relative;
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+
+.sticky-note__content {
+    z-index: 4;
+    position: relative;
+    min-height: 160px;
+    line-height: 160px;
+    text-align: center;
+}
+
+.sticky-note__content a {
+    text-align: center;
+
+}
+
+.sticky-note__read-on {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: block;
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.sticky-note__sheet {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.sticky-note__sheet--top {
+    z-index: 3;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f7d7+0,ffffea+100 */
+    background: rgb(246, 247, 215); /* Old browsers */
+    background: -moz-linear-gradient(
+            45deg,
+            rgba(246, 247, 215, 1) 0%,
+            rgba(255, 255, 234, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+            45deg,
+            rgba(246, 247, 215, 1) 0%,
+            rgba(255, 255, 234, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+            45deg,
+            rgba(246, 247, 215, 1) 0%,
+            rgba(255, 255, 234, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr="#f6f7d7",
+            endColorstr="#ffffea",
+            GradientType=1
+    ); /* IE6-9 fallback on horizontal gradient */
+    transform: rotate(2deg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    height: 102%;
+}
+
+.sticky-note__sheet--middle {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e1e2ba+0,ececba+100 */
+    background: rgb(225, 226, 186); /* Old browsers */
+    background: -moz-linear-gradient(
+            45deg,
+            rgba(225, 226, 186, 1) 0%,
+            rgba(236, 236, 186, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+            45deg,
+            rgba(225, 226, 186, 1) 0%,
+            rgba(236, 236, 186, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+            45deg,
+            rgba(225, 226, 186, 1) 0%,
+            rgba(236, 236, 186, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr="#e1e2ba",
+            endColorstr="#ececba",
+            GradientType=1
+    ); /* IE6-9 fallback on horizontal gradient */
+    z-index: 2;
+    transform: rotate(-1deg) translate(6px, -4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-note__sheet--bottom {
+    background: green;
+    z-index: 1;
+    width: 98%;
+    transform: rotate(-5deg) translate(14px, -1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-note__tape {
+    z-index: 5;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 36px;
+    width: 70px;
+    opacity: 0.6;
+}
+
+
+/*3*/
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ * Licensed under the MIT License
+ *
+ * Sass/SCSS source: https://goo.gl/8hncj
+ * PSD by Liam McCabe: https://goo.gl/md3Dj
+ */
+
+.notepaper {
+    position: relative;
+    margin: 70px auto 60px auto;
+    padding: 29px 20px 20px 45px;
+    width: 300px;
+    line-height: 30px;
+    color: #6a5f49;
+    text-shadow: 0 1px 1px white;
+    background-color: #f2f6c1;
+    background-image: -webkit-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -webkit-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+    background-image: -moz-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -moz-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+    background-image: -o-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -o-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+    border: 1px solid #c3baaa;
+    border-color: rgba(195, 186, 170, 0.9);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+}
+
+.notepaper:before, .notepaper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.notepaper:before {
+    left: 28px;
+    width: 2px;
+    border: solid #efcfad;
+    border-color: rgba(239, 207, 173, 0.9);
+    border-width: 0 1px;
+}
+
+.notepaper:after {
+    z-index: -1;
+    left: 0;
+    right: 0;
+    background: rgba(242, 246, 193, 0.9);
+    border: 1px solid rgba(170, 157, 134, 0.7);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.quote {
+    font-family: Georgia, serif;
+    font-size: 14px;
+}
+
+.curly-quotes:before, .curly-quotes:after {
+    display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    line-height: 48px;
+    font-size: 50px;
+    opacity: .2;
+}
+
+.curly-quotes:before {
+    content: '\201C';
+    margin-right: 4px;
+    margin-left: -8px;
+}
+
+.curly-quotes:after {
+    content: '\201D';
+    margin-left: 4px;
+    margin-right: -8px;
+}
+
+.quote-by {
+    display: block;
+    padding-right: 10px;
+    text-align: right;
+    font-size: 1.2rem;
+    font-family: Times New Roman;
+    color: #84775c;
+}
+
+.lt-ie8 .notepaper {
+    padding: 15px 25px;
+}
+
+
 
 * {
     cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor.png), auto;
