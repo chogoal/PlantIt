@@ -36,6 +36,7 @@
     {#    </div>#}
 
 
+    {% if user.is_authenticated %}
     <div class="notepaper">
         <figure class="quote">
             <blockquote class="curly-quotes">
@@ -46,6 +47,7 @@
             <figcaption class="quote-by"> Challenge </figcaption>
         </figure>
     </div>
+    {% endif %}
 {#    <div class="sticky-note">#}
 {#        <div class="sticky-note__content">#}
 {#            <a href="{% url 'challengeapp:create' %}" class="home_challenge">#}

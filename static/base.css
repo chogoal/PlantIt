@@ -14,7 +14,7 @@
 
 .footer_logo {
     border-top: 4px solid darkgreen;
-    margin: 0 2rem;
+    margin: 2rem;
     padding: 1.5rem 0;
     font-family: 'DungGeunMo', cursive;
 }
@@ -118,7 +118,7 @@
     color: darkolivegreen;
     padding: 15px 27px;
     width: 90%;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -167,6 +167,7 @@
 }
 
 h5.challenge_success {
+    font-size: 1.5rem;
     color: #2d8756;
 }
 
