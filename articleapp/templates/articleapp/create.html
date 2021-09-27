@@ -17,6 +17,10 @@
             margin: 1rem;
         }
 
+        input#file-upload-button {
+    background-color: green;
+    font-family: DungGeunMo, cursive;
+}
     </style>
     <div class="text-center mw-500 m-auto">
 
@@ -29,26 +33,27 @@
                   method="post" enctype="multipart/form-data">
 
                 {% csrf_token %}
-
-                <div class="content">
-                    <label for="form.title"> Title </label>
-                    <input type="text" name="title" required>
-                </div>
-
-                <div class="content">
-                    <label for="form.project"> Project </label>
-                    <div> {{ form.project }} </div>
-                </div>
-
-                <div class="filebox bs3-success content">
-                    <label for="form.image"> Picture Select </label>
-                    <br>
-                    <input type="file" name="image" accept="image/*" required id="form.image">
-                </div>
-                <div class="content">
-                    <label for="form.content"> Content </label>
-                    <textarea name="content" id="form.content" cols="40" rows="10" required></textarea>
-                </div>
+                {% bootstrap_form form %}
+{##}
+{#                <div class="content">#}
+{#                    <label for="form.title"> Title </label>#}
+{#                    <input type="text" name="title" required>#}
+{#                </div>#}
+{##}
+{#                <div class="content">#}
+{#                    <label for="form.project"> Project </label>#}
+{#                    <div> {{ form.project }} </div>#}
+{#                </div>#}
+{##}
+{#                <div class="filebox bs3-success content">#}
+{#                    <label for="form.image"> Picture Select </label>#}
+{#                    <br>#}
+{#                    <input type="file" name="image" accept="image/*" required id="form.image">#}
+{#                </div>#}
+{#                <div class="content">#}
+{#                    <label for="form.content"> Content </label>#}
+{#                    <textarea name="content" id="form.content" cols="40" rows="10" required></textarea>#}
+{#                </div>#}
 
                 <div class="m-5">
                     <input type="submit" value="D O N E !" class="btn btn-outline-success DGM px-5"

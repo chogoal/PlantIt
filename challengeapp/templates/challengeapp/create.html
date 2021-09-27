@@ -31,23 +31,24 @@
                   method="post">
 
                 {% csrf_token %}
+                {% bootstrap_form form %}
 
-                <div class="content">
-                    <label for="form.title"> Title </label>
-                    <div> {{ form.title }} </div>
-                </div>
-
-                <div class="content">
-                    <label for="form.image"> Picture Select </label>
-                    <br>
-                    <input type="file" name="image" accept="image/*" class="form-control-file"
-                           title required id="form.image">
-                </div>
-
-                <div class="content">
-                    <label for="form.content"> Content </label>
-                    <textarea name="content" id="form.content" cols="40" rows="10" required></textarea>
-                </div>
+{#                <div class="content">#}
+{#                    <label for="form.title"> Title </label>#}
+{#                    <div> {{ form.title }} </div>#}
+{#                </div>#}
+{##}
+{#                <div class="content">#}
+{#                    <label for="form.image"> Picture Select </label>#}
+{#                    <br>#}
+{#                    <input type="file" name="image" accept="image/*" class="form-control-file"#}
+{#                           title required id="form.image">#}
+{#                </div>#}
+{##}
+{#                <div class="content">#}
+{#                    <label for="form.content"> Content </label>#}
+{#                    <textarea name="content" id="form.content" cols="40" rows="10" required></textarea>#}
+{#                </div>#}
 
                 <div class="m-5">
                     <input type="submit" value="D O N E !" class="btn btn-outline-secondary DGM px-5"

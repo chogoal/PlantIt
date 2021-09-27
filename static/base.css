@@ -189,50 +189,134 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-textarea {
+div.form-group {
+    margin: 1.5rem 0;
+}
+
+div.label {
+    font-family: DungGeunMo, cursive;
+}
+
+
+textarea.form-control {
     margin: auto;
     padding: 12px 20px;
     display: inline-block;
     border: 2px solid darkgreen;
     box-sizing: border-box;
+
 }
-
-.filebox {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-
-.filebox label {
-    display: inline-block;
-    padding: .5em .75em;
-    color: #999;
-    font-size: inherit;
-    line-height: normal;
+.form-control-file {
+    margin: 0.3rem 0;
+    padding: 10px;
+    width: 70%;
+    /*border: 2px solid darkgreen;*/
+    border-radius: 0.3rem;
+    color: darkgreen;
     vertical-align: middle;
-    background-color: #fdfdfd;
+}
+
+.form-control-file::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.form-control-file::before {
+    content: '업로드';
+    color: lightgoldenrodyellow;
+    background-color: darkgreen;
+    border-color: darkgreen;
+    display: inline-block;
+    border-radius: 3px;
+    margin: -3px 0 -3px 10px;
+    padding: 5px 20px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
     cursor: pointer;
-    border: 1px solid #ebebeb;
-    border-bottom-color: #e2e2e2;
-    border-radius: .25em;
+    text-align: center;
+    font-size: 10pt;
 }
 
-.filebox input[type="file"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+.form-control-file:hover::before {
+    border-color: black;
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+
 }
 
-.filebox.bs3-success label {
-    color: #fff;
-    background-color: #2d8756;
-    border-color: #2d8756;
+.form-control-file:active {
+    outline: 0;
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+
 }
+
+.form-control-file:active::before {
+    cursor: url(https://github.com/nostalgic-css/NES.css/blob/develop/assets/cursor-click.png?raw=true), auto;
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.form-group a {
+    margin-left: 10px;: ;
+}
+
+
+/*.wrapper-block {*/
+
+/*}*/
+
+/*input[type="file"] {*/
+/*    background-image: url(http://e-riverstyle.com/demo/icon.png);*/
+/*	background-repeat: no-repeat;*/
+/*	background-size: 100px auto;*/
+/*	height: 100px;*/
+/*	height: 100px;*/
+/*	-webkit-appearance: none;*/
+/*	appearance: none;*/
+/*}*/
+/*input[type="file"]::-webkit-file-upload-button {*/
+/*	width: 100px;*/
+/*	height: 100px;*/
+/*	opacity: 0;*/
+/*	-webkit-appearance: none;*/
+/*  appearance: none;*/
+/*}*/
+
+/*.filebox {*/
+/*    display: inline-block;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+
+/*.filebox label {*/
+/*    display: inline-block;*/
+/*    padding: .5em .75em;*/
+/*    color: #999;*/
+/*    font-size: inherit;*/
+/*    line-height: normal;*/
+/*    vertical-align: middle;*/
+/*    background-color: #fdfdfd;*/
+/*    cursor: pointer;*/
+/*    border: 1px solid #ebebeb;*/
+/*    border-bottom-color: #e2e2e2;*/
+/*    border-radius: .25em;*/
+/*}*/
+
+
+/*.filebox input[type="file"] {*/
+/*    position: absolute;*/
+/*    width: 1px;*/
+/*    height: 1px;*/
+/*    padding: 0;*/
+/*    margin: -1px;*/
+/*    overflow: hidden;*/
+/*    clip: rect(0, 0, 0, 0);*/
+/*    border: 0;*/
+/*}*/
+
+/*.filebox.bs3-success label {*/
+/*    color: #fff;*/
+/*    background-color: #2d8756;*/
+/*    border-color: #2d8756;*/
+/*}*/
 
 .comment_box {
     text-align: left;
@@ -679,7 +763,6 @@ fieldset.sticky-note:nth-child(1) {
 .lt-ie8 .notepaper {
     padding: 15px 25px;
 }
-
 
 
 * {
