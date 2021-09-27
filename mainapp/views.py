@@ -17,14 +17,6 @@ def main_screen(request):
 
 
 def get_random():
-
-    # max_id = Challenge.objects.all().aggregate(max_id=Max("id"))['max_id']
-    # while True:
-    #     pk = random.randint(1, max_id)
-    #     challenge = Challenge.objects.filter(pk=pk, success=False).first()
-    #     if challenge:
-    #         return challenge
-
     chall_list = Challenge.CHALL_LIST
     r = random.randint(0, len(chall_list)-1)
     title = chall_list[r][1]
@@ -39,11 +31,9 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         article_list = Article.objects.all().order_by('-like', '-created_at')
-        # challenge_list = Challenge.objects.filter(success=False)
 
         context = super().get_context_data(**kwargs)
-        context['best_articles'] = article_list[:10]
-        # context['challenge_list'] = challenge_list[:10]
+        context['best_articles'] = article_list[:8]
         context['random_challenge'] = get_random()
 
         return context

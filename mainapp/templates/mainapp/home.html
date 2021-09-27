@@ -37,7 +37,7 @@
 
 
     {% if user.is_authenticated %}
-        {% if target_user.profile %}
+        {% if user.profile %}
             <div class="notepaper">
                 <figure class="quote">
                     <blockquote class="curly-quotes">
@@ -49,7 +49,7 @@
                 </figure>
             </div>
         {% else %}
-                        <div class="notepaper">
+            <div class="notepaper">
                 <figure class="quote">
                     <blockquote class="curly-quotes">
                         <a href="{% url 'profileapp:create' %}" class="home_challenge">

@@ -23,8 +23,8 @@
                         </h2>
                         <div style="margin: 10px">마일리지 : {{ target_user.profile.mileage }}</div>
                         {% if user == target_user %}
-                            <button type="button" class="btn btn-success" onclick="location.href = '{% url 'gameapp:game' %}'">
-                                <a href="https://yuseonchoi.itch.io/plant-it">내 맵으로 이동</a>
+                            <button type="button" class="btn btn-success" onclick="location.href = 'https://yuseonchoi.itch.io/plant-it'">
+                                내 맵으로 이동
                             </button>
                         {% endif %}
                     </div>

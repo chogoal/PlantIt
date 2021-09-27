@@ -45,11 +45,20 @@
     <script src="{% static 'js/magicgrid.js' %}"></script>
     {% include 'snippets/pagination.html' %}
 
-    <div class="text-center my-5">
-        <a href="{% url 'challengeapp:create' %}"
-           class="btn btn-outline-dark rounded-pill px-5 DGM" style="font-size: 1.2rem">
-            Create Challenge
-        </a>
-    </div>
+    {% if user.profile %}
+        <div class="text-center my-5">
+            <a href="{% url 'challengeapp:create' %}"
+               class="btn btn-outline-dark rounded-pill px-5 DGM" style="font-size: 1.2rem">
+                Create Challenge
+            </a>
+        </div>
+    {% else %}
+        <div class="text-center my-5">
+            <a href="{% url 'profileapp:create' %}"
+               class="btn btn-outline-dark rounded-pill px-5 DGM" style="font-size: 1.2rem">
+                Create Challenge
+            </a>
+        </div>
+    {% endif %}
 
 {% endblock %}

@@ -8,7 +8,9 @@
             {#      제목 / 날짜      #}
             <div style="margin: 3rem">
                 <h1 class="NNS_B">{{ target_challenge.title }}</h1>
-                <p class="DGM">{{ target_challenge.updated_at }}</p>
+                <h5 class="DGM my-3">
+                    {{ target_challenge.writer.profile.nickname }} | {{ target_challenge.created_at }}
+                </h5>
             </div>
             <div>
                 <h5 class="challenge_success"> SUCCESS! 환경 보호를 위한 한 걸음! </h5>
@@ -26,6 +28,7 @@
                 {{ target_challenge.content }}
             </div>
 
+            {% if target_challenge.writer == user %}
             <div>
                 <a href="{% url 'challengeapp:update' pk=target_challenge.pk %}">
                     <img src="{% static 'imgs/update_icon.png' %}" alt="update_icon"
@@ -39,6 +42,7 @@ margin: 1rem">
 margin: 1rem">
                 </a>
             </div>
+            {% endif %}
         </div>
 
     </div>
