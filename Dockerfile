@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "adf"
+RUN echo "plantit_for_planet"
 
 RUN git clone https://github.com/chogoal/PlantIt.git
 
