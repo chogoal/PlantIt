@@ -2,11 +2,11 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "plantitplantit"
+RUN echo "adf"
 
-RUN git clone https://github.com/WholesomeMullet/plant-it.git
+RUN git clone https://github.com/chogoal/PlantIt.git
 
-WORKDIR /home/plant-it/
+WORKDIR /home/PlantIt/
 
 RUN pip install -r requirements.txt
 
