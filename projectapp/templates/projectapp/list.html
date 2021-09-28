@@ -34,9 +34,8 @@
 
             <div>
                 <a href="{% url 'projectapp:detail' pk=project.pk %}">
-                    <img src="{{ project.image.url }}" alt="">
+                    <span class="NNS_B m-2">{{ project.name | truncatechars:10 }}</span>
                 </a>
-            <span class="NNS_B m-2">{{ project.name | truncatechars:10 }}</span>
             </div>
 
         {% endfor %}

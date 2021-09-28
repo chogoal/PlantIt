@@ -20,8 +20,8 @@ services:
       - MARIADB_USER
       - MARIADB_PASSWORD
     volumes:
-      - static:/home/plant-it/staticfiles/
-      - media:/home/plant-it/media/
+      - static:/home/PlantIt/staticfiles/
+      - media:/home/PlantIt/media/
 
   mariadb:
     image: mariadb:10.5
